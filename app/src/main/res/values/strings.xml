@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Calcount</string>
+    <string name="apk_intro">CALCOUNT</string>
+    <string name="diskon">Diskon (%)</string>
+    <string name="harga1">Harga (Rp.)</string>
+    <string name="jumlah_diskon">Jumlah Diskon</string>
+    <string name="total">Total Pembayaran</string>
+    <string name="hitung">Hitung</string>
+    <string name="reset">Reset</string>
+    <string name="intro">aplikasi untuk menghitung jumlah diskon dan total pembayaran anda</string>
 </resources>
