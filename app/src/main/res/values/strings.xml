@@ -10,4 +10,5 @@
     <string name="intro">aplikasi untuk menghitung jumlah diskon dan total pembayaran anda</string>
     <string name="harga_invalid">Harus masukkan jumlah harga</string>
     <string name="diskon_invalid">Harus masukkan jumlah diskon</string>
+    <string name="keluar">Keluar</string>
 </resources>

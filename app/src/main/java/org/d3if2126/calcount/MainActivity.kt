@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.button1.setOnClickListener { hitungDiskon()}
         binding.button2.setOnClickListener { reset()}
+        binding.button3.setOnClickListener { keluar()}
     }
     private fun hitungDiskon(){
         val harga = binding.editHarga.text.toString()
@@ -42,5 +43,10 @@ class MainActivity : AppCompatActivity() {
         binding.editHasil.setText("")
         binding.editTotal.setText("")
 
+    }
+    private fun keluar(){
+        moveTaskToBack(true)
+        android.os.Process.killProcess(android.os.Process.myPid())
+        System.exit(1);
     }
 }
