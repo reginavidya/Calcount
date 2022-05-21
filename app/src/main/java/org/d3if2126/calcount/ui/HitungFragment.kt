@@ -1,14 +1,13 @@
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import org.d3if2126.calcount.MainViewModel
 import org.d3if2126.calcount.R
 import org.d3if2126.calcount.databinding.FragmentHitungBinding
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.*
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import org.d3if2126.calcount.model.HasilDiskon
 
 class HitungFragment : Fragment() {
@@ -22,10 +21,23 @@ class HitungFragment : Fragment() {
                               savedInstanceState: Bundle?): View {
 
         binding = FragmentHitungBinding.inflate(layoutInflater, container, false)
+        setHasOptionsMenu(true)
         return binding.root
     }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.options_menu, menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_about) {
+            findNavController().navigate(
+                R.id.action_hitungFragment_to_aboutFragment)
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
-        override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.button1.setOnClickListener { hitungDiskon()}
         binding.button2.setOnClickListener { reset()}
         binding.button3.setOnClickListener { keluar()}
