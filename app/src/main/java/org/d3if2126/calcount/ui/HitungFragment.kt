@@ -5,22 +5,32 @@ import org.d3if2126.calcount.R
 import org.d3if2126.calcount.databinding.FragmentHitungBinding
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import org.d3if2126.calcount.db.DiskonDao
+import org.d3if2126.calcount.db.DiskonDb
 import org.d3if2126.calcount.model.HasilDiskon
+import org.d3if2126.calcount.ui.HitungViewModel
+import org.d3if2126.calcount.ui.hitung.HitungViewModelFactory
 
 class HitungFragment : Fragment() {
     private lateinit var binding: FragmentHitungBinding
 
-    private val viewModel: MainViewModel by lazy {
-        ViewModelProvider(requireActivity())[MainViewModel::class.java]
+    private val viewModel: HitungViewModel by lazy {
+        val db = DiskonDb.getInstance(requireContext())
+        val factory = HitungViewModelFactory(db.dao)
+        ViewModelProvider(this, factory)[HitungViewModel::class.java]
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-
+        viewModel.data.observe(viewLifecycleOwner, {
+            if (it == null) return@observe
+            Log.d("HitungFragment", "Data tersimpan. ID = ${it.id}")
+        })
         binding = FragmentHitungBinding.inflate(layoutInflater, container, false)
         setHasOptionsMenu(true)
         return binding.root
