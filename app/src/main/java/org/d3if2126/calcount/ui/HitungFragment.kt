@@ -1,3 +1,4 @@
+import android.content.Intent
 import androidx.fragment.app.Fragment
 import org.d3if2126.calcount.MainViewModel
 import org.d3if2126.calcount.R
@@ -41,7 +42,22 @@ class HitungFragment : Fragment() {
         binding.button1.setOnClickListener { hitungDiskon()}
         binding.button2.setOnClickListener { reset()}
         binding.button3.setOnClickListener { keluar()}
+        binding.shareButton.setOnClickListener { shareData() }
             viewModel.getHasilDiskon().observe(requireActivity(), { showResult(it) })
+    }
+    private fun shareData() {
+        val message = getString(R.string.bagikan_template,
+            binding.editHarga.text,
+            binding.editDiskon.text,
+            binding.editHasil.text,
+            binding.editTotal.text
+        )
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, message)
+        if (shareIntent.resolveActivity(
+                requireActivity().packageManager) != null) {
+                    startActivity(shareIntent)
+        }
     }
     private fun hitungDiskon(){
         val harga = binding.editHarga.text.toString()
