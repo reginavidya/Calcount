@@ -15,4 +15,8 @@
     <string name="copyright">CALCOUNT merupakan sebuah aplikasi Android untuk menghitung jumlah diskon sehingga pengguna dapat mengetahui jumlah diskon yang di dapatkan.\n\nAplikasi ini dibuat untuk Asessment Mobpro1.\nTemukan kodenya di https://github.com/reginavidya/assessment\n\nCopyright © 2022 Regina Vidya Destiani.\nAll rights reserved.</string>
     <string name="bagikan">Bagikan</string>
     <string name="bagikan_template">Harga: Rp.%1$s \nDiskon: %2$s persen \n\nJumlah Diskon: %3$s \nTotal Bayar: %4$s </string>
+    <string name="belum_ada_data">Data belum tersedia</string>
+    <string name="histori">Histori</string>
+    <string name="hasil_x">Harga:Rp. %1$.0f - Diskon: %2$.0f persen</string>
+    <string name="data_x">Jumlah Diskon:Rp. %1$.0f - Total Pembayaran:Rp. %2$.0f</string>
 </resources>

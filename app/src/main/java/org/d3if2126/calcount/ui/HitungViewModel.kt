@@ -11,20 +11,20 @@ import org.d3if2126.calcount.db.DiskonDao
 import org.d3if2126.calcount.db.DiskonDb
 import org.d3if2126.calcount.db.DiskonEntity
 import org.d3if2126.calcount.model.HasilDiskon
+import org.d3if2126.calcount.model.hitungDiskon
 
 class HitungViewModel(private val db: DiskonDao) : ViewModel() {
     private val hasilDiskon = MutableLiveData<HasilDiskon?>()
-    val data = db.getLastDiskon()
 
     fun hitungDiskon(harga:Float, diskon: Float) {
-        val hitungDiskon = harga.toFloat() * (diskon.toFloat() /100)
-        val totalDiskon = harga.toFloat() - hitungDiskon
-        hasilDiskon.value = HasilDiskon(hitungDiskon, totalDiskon)
+        val dataDiskon = DiskonEntity(
+            harga = harga,
+            diskon = diskon
+        )
+        hasilDiskon.value = dataDiskon.hitungDiskon()
+
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
-                val dataDiskon = DiskonEntity(
-                    harga = harga,
-                    diskon = diskon)
                 db.insert(dataDiskon)
             }
         }

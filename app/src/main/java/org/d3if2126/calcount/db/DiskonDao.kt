@@ -8,8 +8,8 @@ import androidx.room.Query
 @Dao
 interface DiskonDao {
     @Insert
-    fun insert(bmi: DiskonEntity)
+    fun insert(diskon: DiskonEntity)
 
-    @Query("SELECT * FROM diskon1 ORDER BY id DESC LIMIT 1")
-    fun getLastDiskon(): LiveData<DiskonEntity?>
+    @Query("SELECT * FROM diskon1 ORDER BY id DESC")
+    fun getLastDiskon(): LiveData<List<DiskonEntity>>
 }

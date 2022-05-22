@@ -5,10 +5,13 @@
       <map>
         <entry key="..\:/Users/Reva/AndroidStudioProjects/Calcount/app/src/main/res/font/almendra_bold.xml" value="0.234375" />
         <entry key="..\:/Users/Reva/AndroidStudioProjects/Calcount/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Reva/AndroidStudioProjects/asessment/Calcount/app/src/main/res/drawable/ic_baseline_history_24.xml" value="0.1" />
         <entry key="..\:/Users/Reva/AndroidStudioProjects/asessment/Calcount/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Reva/AndroidStudioProjects/asessment/Calcount/app/src/main/res/layout/fragment_about.xml" value="0.1" />
+        <entry key="..\:/Users/Reva/AndroidStudioProjects/asessment/Calcount/app/src/main/res/layout/fragment_histori.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/Reva/AndroidStudioProjects/asessment/Calcount/app/src/main/res/layout/fragment_hitung.xml" value="0.22" />
         <entry key="..\:/Users/Reva/AndroidStudioProjects/asessment/Calcount/app/src/main/res/layout/hitung_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/Reva/AndroidStudioProjects/asessment/Calcount/app/src/main/res/layout/item_histori.xml" value="0.33" />
         <entry key="..\:/Users/Reva/AndroidStudioProjects/asessment/Calcount/app/src/main/res/menu/options_menu.xml" value="0.1" />
       </map>
     </option>
