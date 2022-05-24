@@ -12,4 +12,7 @@ interface DiskonDao {
 
     @Query("SELECT * FROM diskon1 ORDER BY id DESC")
     fun getLastDiskon(): LiveData<List<DiskonEntity>>
+
+    @Query("DELETE FROM diskon1")
+    fun clearData()
 }

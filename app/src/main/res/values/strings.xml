@@ -19,4 +19,8 @@
     <string name="histori">Histori</string>
     <string name="hasil_x">Harga:Rp. %1$.0f - Diskon: %2$.0f persen</string>
     <string name="data_x">Jumlah Diskon:Rp. %1$.0f - Total Pembayaran:Rp. %2$.0f</string>
+    <string name="hapus_histori">Hapus Histori</string>
+    <string name="konfirmasi_hapus">Hapus semua histori?</string>
+    <string name="hapus">Hapus</string>
+    <string name="batal">Batal</string>
 </resources>
