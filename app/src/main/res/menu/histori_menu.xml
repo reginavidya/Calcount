@@ -6,4 +6,9 @@
         android:icon="@drawable/ic_baseline_delete_24"
         android:title="@string/hapus_histori"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_switch_layout"
+        android:title="@string/action_switch_layout"
+        android:icon="@drawable/ic_linear_layout"
+        app:showAsAction="always" />
 </menu>
