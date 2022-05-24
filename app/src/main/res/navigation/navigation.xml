@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_hitungFragment_to_historiFragment"
             app:destination="@id/historiFragment" />
+        <action
+            android:id="@+id/action_hitungFragment_to_lainnyaFragment3"
+            app:destination="@id/lainnyaFragment3" />
 
     </fragment>
     <fragment
@@ -28,4 +31,9 @@
         android:name="org.d3if2126.calcount.ui.histori.HistoriFragment"
         android:label="@string/histori"
         tools:layout="@layout/fragment_histori" />
+    <fragment
+        android:id="@+id/lainnyaFragment3"
+        android:name="org.d3if2126.calcount.ui.LainnyaFragment"
+        android:label="Lainnya"
+        tools:layout="@layout/fragment_lainnya" />
 </navigation>

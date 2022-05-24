@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import org.d3if2126.calcount.db.DiskonDao
 import org.d3if2126.calcount.db.DiskonDb
@@ -58,6 +59,10 @@ class HitungFragment : Fragment() {
         binding.button2.setOnClickListener { reset()}
         binding.button3.setOnClickListener { keluar()}
         binding.shareButton.setOnClickListener { shareData() }
+        binding.lainnyaButton.setOnClickListener {
+            it.findNavController().navigate( R.id.action_hitungFragment_to_lainnyaFragment3
+            )
+        }
             viewModel.getHasilDiskon().observe(requireActivity(), { showResult(it) })
     }
     private fun shareData() {
@@ -95,6 +100,7 @@ class HitungFragment : Fragment() {
 
         binding.editHasil.setText("Rp."+ result.hitungDiskon1.toInt())
         binding.editTotal.setText("Rp."+ result.totalDiskon.toInt())
+        binding.lainnyaButton.visibility = View.VISIBLE
     }
     private fun reset(){
 
