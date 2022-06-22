@@ -29,4 +29,7 @@ object DiskonApi {
     val service: DiskonApiService by lazy {
         retrofit.create(DiskonApiService::class.java)
     }
+    fun getDiskonUrl(nama: String): String {
+        return "$BASE_URL$nama.jpg"
+    }
 }

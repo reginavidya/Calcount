@@ -4,10 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 import org.d3if2126.calcount.R
 import org.d3if2126.calcount.databinding.ListItemBinding
 import org.d3if2126.calcount.model.Diskon
+import org.d3if2126.calcount.network.DiskonApi
 
 
 class LainnyaAdapter : RecyclerView.Adapter<LainnyaAdapter.ViewHolder>() {
@@ -26,7 +28,10 @@ class LainnyaAdapter : RecyclerView.Adapter<LainnyaAdapter.ViewHolder>() {
         fun bind(diskon: Diskon) = with(binding) {
             namaTextView.text = diskon.nama
             informasiTextView.text = diskon.informasi
-            imageView.setImageResource(diskon.imageResId)
+            Glide.with(imageView.context)
+                .load(DiskonApi.getDiskonUrl(diskon.imageId))
+                .error(R.drawable.ic_baseline_broken_image_24)
+                .into(imageView)
 
             root.setOnClickListener {
                 val message = root.context.getString(R.string.message, diskon.nama)
