@@ -33,7 +33,7 @@
         tools:layout="@layout/fragment_histori" />
     <fragment
         android:id="@+id/lainnyaFragment3"
-        android:name="org.d3if2126.calcount.ui.LainnyaFragment"
+        android:name="org.d3if2126.calcount.ui.Lainnya.LainnyaFragment"
         android:label="Lainnya"
         tools:layout="@layout/fragment_lainnya" />
 </navigation>

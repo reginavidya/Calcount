@@ -85,6 +85,10 @@ class HistoriFragment : Fragment() {
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.menu_hapus -> {
+                hapusData()
+                return true
+            }
             R.id.action_switch_layout -> {
                 isLinearLayoutManager = !isLinearLayoutManager
 
@@ -99,11 +103,6 @@ class HistoriFragment : Fragment() {
             }
             else -> super.onOptionsItemSelected(item)
         }
-        if (item.itemId == R.id.menu_hapus) {
-            hapusData()
-            return true
-        }
-        return super.onOptionsItemSelected(item)
     }
     private fun hapusData() {
         MaterialAlertDialogBuilder(requireContext())
