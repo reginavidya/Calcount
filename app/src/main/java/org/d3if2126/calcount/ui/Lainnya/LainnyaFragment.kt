@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import org.d3if2126.calcount.R
 import org.d3if2126.calcount.databinding.FragmentLainnyaBinding
+import org.d3if2126.calcount.network.DiskonApi
 
 class LainnyaFragment : Fragment() {
 
@@ -45,5 +46,21 @@ class LainnyaFragment : Fragment() {
         viewModel.getDiskon().observe(viewLifecycleOwner, {
             myAdapter.updateData(it)
         })
+        viewModel.getStatus().observe(viewLifecycleOwner, {
+            updateProgress(it)
+        })
+    }
+    private fun updateProgress(status: DiskonApi.ApiStatus) {
+        when (status) {
+            DiskonApi.ApiStatus.LOADING -> {
+                binding.progressBar.visibility = View.VISIBLE
+            }
+        DiskonApi.ApiStatus.SUCCESS -> {
+            binding.progressBar.visibility = View.GONE }
+            DiskonApi.ApiStatus.FAILED -> {
+                binding.progressBar.visibility = View.GONE
+                binding.networkError.visibility = View.VISIBLE
+            }
+        }
     }
 }

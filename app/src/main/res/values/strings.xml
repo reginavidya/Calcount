@@ -27,6 +27,7 @@
     <string name="lainnya">Lainnya</string>
     <string name="deskripsi">Berikut merupakan salah satu akun instagram\n yang memberikan informasi mengenai diskon yang sedang diadakan\n\n Berikut link instagram akun tersebut : https://www.instagram.com/giladiskonn/?hl=en</string>
     <string name="message">%1$s diklik!</string>
+    <string name="koneksi_error">Koneksi error</string>
 
 
 </resources>

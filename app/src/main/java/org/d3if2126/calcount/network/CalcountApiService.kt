@@ -32,4 +32,5 @@ object DiskonApi {
     fun getDiskonUrl(nama: String): String {
         return "$BASE_URL$nama.jpg"
     }
+    enum class ApiStatus { LOADING, SUCCESS, FAILED }
 }

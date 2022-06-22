@@ -16,20 +16,24 @@ import java.util.concurrent.TimeUnit
 class LainnyaViewModel : ViewModel() {
 
     private val data = MutableLiveData<List<Diskon>>()
-
+    private val status = MutableLiveData<DiskonApi.ApiStatus>()
 
     init {
         retrieveData()
     }
     private fun retrieveData() {
         viewModelScope.launch (Dispatchers.IO) {
+            status.postValue(DiskonApi.ApiStatus.LOADING)
             try {
                 data.postValue(DiskonApi.service.getDiskon())
+                status.postValue(DiskonApi.ApiStatus.SUCCESS)
             } catch (e: Exception) {
                 Log.d("LainnyaViewModel", "Failure: ${e.message}")
+                status.postValue(DiskonApi.ApiStatus.FAILED)
             }
         }
     }
 
     fun getDiskon(): LiveData<List<Diskon>> = data
+    fun getStatus(): LiveData<DiskonApi.ApiStatus> = status
 }
