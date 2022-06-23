@@ -6,11 +6,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.work.ExistingWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.d3if2126.calcount.R
 import org.d3if2126.calcount.model.Diskon
 import org.d3if2126.calcount.network.DiskonApi
+import org.d3if2126.calcount.network.UpdateWorker
 import java.util.concurrent.TimeUnit
 
 class LainnyaViewModel : ViewModel() {
@@ -36,4 +40,16 @@ class LainnyaViewModel : ViewModel() {
 
     fun getDiskon(): LiveData<List<Diskon>> = data
     fun getStatus(): LiveData<DiskonApi.ApiStatus> = status
+
+    fun scheduleUpdater(app: Application) {
+        val request = OneTimeWorkRequestBuilder<UpdateWorker>()
+            .setInitialDelay(1, TimeUnit.MINUTES)
+            .build()
+
+        WorkManager.getInstance(app).enqueueUniqueWork(
+            "updater",
+            ExistingWorkPolicy.REPLACE,
+            request
+        )
+    }
 }
