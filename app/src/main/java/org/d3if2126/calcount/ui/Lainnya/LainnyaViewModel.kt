@@ -11,6 +11,7 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.d3if2126.calcount.MainActivity
 import org.d3if2126.calcount.R
 import org.d3if2126.calcount.model.Diskon
 import org.d3if2126.calcount.network.DiskonApi
@@ -47,7 +48,7 @@ class LainnyaViewModel : ViewModel() {
             .build()
 
         WorkManager.getInstance(app).enqueueUniqueWork(
-            "updater",
+            MainActivity.CHANNEL_ID,
             ExistingWorkPolicy.REPLACE,
             request
         )
